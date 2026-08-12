@@ -36,7 +36,7 @@
           </VBox>
         </HBox>
 
-        <Button text="{i18n>analyze}" type="Emphasized" press=".onAnalyze" width="fit-content" />
+        <Button text="{i18n>analyze}" type="Emphasized" press=".onAnalyze" width="auto" />
 
         <MessageStrip text="{view>/error}" visible="{= !!${view>/error} }" type="Error" showIcon="true" class="sapUiSmallMarginTop" />
 
