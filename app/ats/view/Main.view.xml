@@ -1,0 +1,70 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="resume.ats.controller.Main">
+  <Page title="{i18n>title}">
+    <content>
+      <VBox class="sapUiMediumMargin" renderType="Bare">
+        <Toolbar design="Transparent">
+          <Title text="{i18n>eyebrow}" level="H5" />
+          <ToolbarSpacer />
+          <Button text="{i18n>languageButton}" press=".onToggleLanguage" />
+        </Toolbar>
+        
+        <Title text="{i18n>title}" level="H1" />
+
+        <Text text="{i18n>intro}" wrapping="true" class="sapUiSmallMarginBottom" />
+
+        <MessageStrip text="{i18n>privacy}" type="Information" showIcon="true" class="sapUiSmallMarginBottom" />
+
+        <HBox wrap="Wrap" justifyContent="SpaceBetween">
+          <VBox width="49%" class="sapUiSmallMarginBottom">
+            <HBox justifyContent="SpaceBetween" alignItems="Center">
+              <Label text="{i18n>resumeLabel}" labelFor="resumeInput" />
+
+              <HBox>
+                <Button text="{i18n>useDefault}" type="{view>/defaultButtonType}" press=".onUseDefaultResume" />
+
+                <Button text="{i18n>clear}" press=".onClearResume" class="sapUiTinyMarginBegin" />
+              </HBox>
+            </HBox>
+
+            <TextArea id="resumeInput" value="{view>/resumeText}" rows="18" width="100%" placeholder="{i18n>resumePlaceholder}" liveChange=".onResumeChange" />
+          </VBox>
+
+          <VBox width="49%" class="sapUiSmallMarginBottom">
+            <Label text="{i18n>jobLabel}" labelFor="jobInput" />
+
+            <TextArea id="jobInput" value="{view>/jobPosting}" rows="18" width="100%" placeholder="{i18n>jobPlaceholder}" />
+          </VBox>
+        </HBox>
+
+        <Button text="{i18n>analyze}" type="Emphasized" press=".onAnalyze" width="fit-content" />
+
+        <MessageStrip text="{view>/error}" visible="{= !!${view>/error} }" type="Error" showIcon="true" class="sapUiSmallMarginTop" />
+
+        <Panel headerText="{i18n>analysis}" visible="{view>/hasResult}" class="sapUiMediumMarginTop">
+          <content>
+            <ObjectNumber number="{view>/result/matching/score}" unit="{i18n>overlap}" />
+
+            <Title text="{i18n>contactSignals}" level="H4" class="sapUiSmallMarginTop" />
+
+            <Text text="{i18n>email}" />
+            <Text text="{view>/result/extracted/email}" class="sapUiTinyMarginBottom" />
+
+            <Text text="{i18n>phone}" />
+            <Text text="{view>/result/extracted/phone}" class="sapUiTinyMarginBottom" />
+
+            <Text text="{i18n>wordCount}" />
+            <Text text="{view>/result/extracted/wordCount}" />
+
+            <Title text="{i18n>matchedKeywords}" level="H4" class="sapUiSmallMarginTop" />
+
+            <Text text="{view>/matchedKeywordsText}" wrapping="true" />
+
+            <Title text="{i18n>missingKeywords}" level="H4" class="sapUiSmallMarginTop" />
+            
+            <Text text="{view>/missingKeywordsText}" wrapping="true" />
+          </content>
+        </Panel>
+      </VBox>
+    </content>
+  </Page>
+</mvc:View>

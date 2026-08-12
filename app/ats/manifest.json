@@ -1,0 +1,36 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "resume.ats",
+    "type": "application",
+    "title": "Resume ATS Explorer",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.120.48",
+      "libs": {
+        "sap.m": {}
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "resume.ats.i18n.i18n",
+          "supportedLocales": ["", "es"],
+          "fallbackLocale": ""
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "resume.ats.view.Main",
+      "type": "XML",
+      "async": true,
+      "id": "main"
+    }
+  }
+}
